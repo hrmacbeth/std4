@@ -58,7 +58,7 @@ theorem length_eq_zero : length l = 0 ↔ l = [] :=
 
 @[simp] theorem mem_cons : a ∈ (b :: l) ↔ a = b ∨ a ∈ l :=
   ⟨fun h => by cases h <;> simp [Membership.mem, *],
-   fun | Or.inl rfl => by constructor | Or.inr h => by constructor; assumption⟩
+   fun | Or.inl rfl => Mem.head _ | Or.inr h => by constructor; assumption⟩
 
 /-! ### append -/
 
